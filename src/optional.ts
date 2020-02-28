@@ -36,8 +36,8 @@ export class Optional {
   }
 
   flatMap(fn: (argument: any) => any): Optional {
-    if (this.isPresent) {
-      return this.map(fn);
+    if (this.isPresent()) {
+      return fn(this.value);
     } else {
       return Optional.empty();
     }

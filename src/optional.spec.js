@@ -19,6 +19,14 @@ test("null and undefined as arguments should return an empty Optional instance",
   });
 });
 
+test("flatMap(), If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional.", () => {
+  expect(
+    Optional.of("1")
+      .flatMap(Optional.of)
+      .toString()
+  ).toEqual("Optional[1]");
+});
+
 test("empty() should return an empty Optional instance.", () => {
   expect(Optional.empty().isPresent()).toBeFalsy();
 });
